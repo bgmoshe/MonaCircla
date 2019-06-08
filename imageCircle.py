@@ -7,10 +7,12 @@ Created on Sat Jun  8 15:02:00 2019
 
 from circle import Circle
 
+
 class ImageCircle(Circle):
 
     def __init__(self, x_center, y_center, radius, red, green, blue, opacity):
-        self.rgb = {'red':red, 'green': green, 'blue': blue}
+        super().__init__(x_center, y_center, radius)
+        self.rgb = {'red': red, 'green': green, 'blue': blue}
         self.opacity = opacity
 
     def get_red(self):
@@ -24,3 +26,4 @@ class ImageCircle(Circle):
 
     def get_opacity(self):
         return self.opacity
+

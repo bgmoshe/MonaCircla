@@ -3,9 +3,9 @@
  '''
 
 import cv2
-from PIL import Image
 import numpy as np
 DEFAULT_FPS = 4
+
 
 def visualize(frames, video_name="animated_result.avi", fps=DEFAULT_FPS):
     width, height = frames[0].size
@@ -17,14 +17,3 @@ def visualize(frames, video_name="animated_result.avi", fps=DEFAULT_FPS):
         video.write(opencvimage)
     cv2.destroyAllWindows()
     video.release()
-
-
-if __name__ == "__main__":
-    folder = "C:\\Users\\barak\\Documents\\DSS Exam\\Cropped Parts Of Mona\\"
-    files = list()
-    for i in range(1, 5):
-        for j in range(1, 5):
-            filename = "Mona_Lisa_Cropped_X=%d_Y=%d.jpg"%(i, j)
-            files.append(Image.open(folder+filename))
-
-    visualize(files)

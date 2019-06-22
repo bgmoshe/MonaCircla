@@ -7,6 +7,17 @@ Created on Thu Jun  6 21:19:35 2019
 from numpy.random import choice
 
 
+def calculate_l1_penalty(original_image, current_image):
+    penalty = 0
+    size = original_image.size
+    for i in range(size[0]):
+        for j in range(size[1]):
+            source_pixel = original_image.getpixel((i, j))
+            dest_pixel = current_image.getpixel((i, j))
+            penalty += sum([abs(source_pixel[k] - dest_pixel[k]) for k in range(3)])
+    return penalty
+
+
 def sgd(starting_point, learning_rate, function, gradient_function, iterations=0, error_rate=0):
     i = iterations
     current_error_rate = function(starting_point)

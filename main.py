@@ -30,12 +30,6 @@ if __name__ == "__main__":
     im = ApproximatedImage(image, max_circles)
     im.optimize()
     modified_filename = image_path.split(".")
-    modified_filename = modified_filename[0] + "_approximated_by_%d%circles" % max_circles
+    modified_filename = modified_filename[0] + "_approximated_by_%d_circles" % max_circles
     im.get_current_image().save(modified_filename + ".jpg")
     visualize(im.images_by_steps, modified_filename + ".avi")
-
-
-
-
-        
-        
